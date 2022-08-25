@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoList</title>
+    <link rel="stylesheet" href="./css/app.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Todolist</h1>
+        </header>
+
+        <main>
+            <div class="container new-todo__wrapper">
+                <input type="text" v-model="newTodo" placeholder="Fare...">
+                <input @click="addToDo" type="button" value="Aggiungi" >
+            </div>
+
+            <div class="container">
+                {{newTodo}}
+            </div>
+            <div class="container">
+                <ul class="todolist">
+                    <!-- <li class="todo">
+                        Fare i compiti
+                        <i class="fa-solid fa-xmark"></i>
+                    </li>
+                    <li class="todo">
+                        Fare la spesa
+                        <i class="fa-solid fa-xmark"></i>
+                    </li>
+                    <li class="todo done">
+                        Buttare i pattumi
+                        <i class="fa-solid fa-xmark"></i>
+                    </li>
+                    <li class="todo">
+                        Fare la doccia
+                        <i class="fa-solid fa-xmark"></i>
+                    </li> -->
+                    <!-- <li v-for="todo in todos"
+                        :class="todo.done ? 'done' : ''"
+                            class="todo" >
+                            {{todo.text}}
+                            <i class="fa-solid fa-xmark"></i>
+                    </li> -->
+                    <li v-for="todo in todos"
+                        :class="[todo.done ? 'done' : '', 'todo']"
+                            class="todo" >
+                            {{todo.text}}
+                            <i @click="toggleDoneOf(todo)" class="fa-solid fa-xmark"></i>
+                    </li>
+                        
+                </ul>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="./js/app.js"></script>
+</body>
+</html>
